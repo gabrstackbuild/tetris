@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tetris Retrô 2D</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="arcade">
+
+        <h1>TETRIS</h1>
+
+        <div class="game">
+
+            <canvas
+                id="canvas"
+                width="300"
+                height="600"
+            ></canvas>
+
+            <div class="info">
+
+                <div class="box">
+                    <span>SCORE</span>
+                    <strong id="score">000000</strong>
+                </div>
+
+                <div class="box">
+                    <span>LINES</span>
+                    <strong id="lines">000</strong>
+                </div>
+
+                <div class="box">
+                    <span>LEVEL</span>
+                    <strong id="level">01</strong>
+                </div>
+
+                <button id="start">
+                    START
+                </button>
+
+                <div class="instructions">
+                    <p>← → MOVER</p>
+                    <p>↑ GIRAR</p>
+                    <p>↓ DESCER</p>
+                    <p>ESPAÇO DROP</p>
+                    <p>P PAUSAR</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="message">
+            PRESS START
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

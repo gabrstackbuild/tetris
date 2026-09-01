@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #080808;
+
+    color: #00ff66;
+
+    font-family:
+        "Courier New",
+        monospace;
+}
+
+.arcade {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+
+    font-size: 46px;
+
+    letter-spacing: 8px;
+
+    text-shadow:
+        0 0 5px #00ff66,
+        0 0 15px #00ff66;
+}
+
+.game {
+    display: flex;
+
+    gap: 25px;
+
+    align-items: flex-start;
+}
+
+canvas {
+    display: block;
+
+    width: 300px;
+    height: 600px;
+
+    background: #000;
+
+    border: 5px solid #00ff66;
+
+    image-rendering: pixelated;
+
+    box-shadow:
+        0 0 10px #00ff66,
+        inset 0 0 20px #003d19;
+}
+
+.info {
+    width: 170px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.box {
+    padding: 12px;
+
+    border: 2px solid #00ff66;
+
+    background: #020d05;
+
+    text-align: left;
+}
+
+.box span {
+    display: block;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+.box strong {
+    font-size: 20px;
+
+    letter-spacing: 2px;
+}
+
+button {
+    padding: 14px;
+
+    border: 2px solid #00ff66;
+
+    background: #00ff66;
+
+    color: #000;
+
+    font-family: inherit;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #00ff66;
+}
+
+button:hover {
+    background: #000;
+
+    color: #00ff66;
+}
+
+.instructions {
+    border: 2px solid #00ff66;
+
+    padding: 12px;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    text-align: left;
+}
+
+#message {
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+
+    .game {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .info {
+        width: 300px;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .instructions,
+    button {
+        grid-column: 1 / -1;
+    }
+
+}
