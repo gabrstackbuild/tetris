@@ -120,7 +120,7 @@ Conforme o nível aumenta, as peças caem mais rapidamente.
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/gabrdevlab/tetris
+git clone https://github.com/gabrstackbuild/tetris.git
 ```
 
 ### 2. Entre na pasta
