@@ -120,13 +120,13 @@ Conforme o nível aumenta, as peças caem mais rapidamente.
 ### 1. Clone o projeto
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/gabrdevlab/tetris
 ```
 
 ### 2. Entre na pasta
 
 ```bash
-cd tetris-retro
+cd tetris
 ```
 
 ### 3. Abra o jogo
