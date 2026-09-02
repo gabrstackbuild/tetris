@@ -1,373 +1,373 @@
-    <!DOCTYPE html>
-    <html lang="pt-BR">
+        <!DOCTYPE html>
+        <html lang="pt-BR">
 
-    <head>
+        <head>
 
-        <meta charset="UTF-8">
+            <meta charset="UTF-8">
 
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        >
-
-        <meta
-            name="description"
-            content="Tetris retrô 2D desenvolvido com HTML, CSS e JavaScript."
-        >
-
-        <title>Tetris Retrô 2D</title>
-
-        <link rel="stylesheet" href="style.css">
-
-    </head>
-
-    <body>
-
-        <main class="arcade">
-
-            <!-- =========================
-                TÍTULO
-            ========================== -->
-
-            <header class="header">
-
-                <h1>TETRIS</h1>
-
-                <span class="subtitle">
-                    RETRO 2D
-                </span>
-
-            </header>
-
-
-            <!-- =========================
-                MENU PRINCIPAL
-            ========================== -->
-
-            <section
-                id="menu"
-                class="menu"
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
             >
 
-                <h2>SELECT MODE</h2>
-
-                <button
-                    id="onePlayer"
-                    type="button"
-                >
-                    1 PLAYER
-                </button>
-
-                <button
-                    id="twoPlayers"
-                    type="button"
-                >
-                    2 PLAYERS
-                </button>
-
-            </section>
-
-
-            <!-- =========================
-                JOGO
-            ========================== -->
-
-            <section
-                id="game"
-                class="game hidden"
+            <meta
+                name="description"
+                content="Tetris retrô 2D desenvolvido com HTML, CSS e JavaScript."
             >
 
+            <title>Tetris Retrô 2D</title>
 
-                <!-- =====================
-                    PLAYER 1
-                ====================== -->
+            <link rel="stylesheet" href="style.css">
 
-                <div
-                    id="player1"
-                    class="player"
+        </head>
+
+        <body>
+
+            <main class="arcade">
+
+                <!-- =========================
+                    TÍTULO
+                ========================== -->
+
+                <header class="header">
+
+                    <h1>TETRIS</h1>
+
+                    <span class="subtitle">
+                        RETRO 2D
+                    </span>
+
+                </header>
+
+
+                <!-- =========================
+                    MENU PRINCIPAL
+                ========================== -->
+
+                <section
+                    id="menu"
+                    class="menu"
                 >
 
-                    <h2>PLAYER 1</h2>
+                    <h2>SELECT MODE</h2>
 
-                    <div class="board-container">
+                    <button
+                        id="onePlayer"
+                        type="button"
+                    >
+                        1 PLAYER
+                    </button>
 
-                        <canvas
-                            id="canvas1"
-                            width="300"
-                            height="600"
-                            aria-label="Tabuleiro do jogador 1"
-                        ></canvas>
+                    <button
+                        id="twoPlayers"
+                        type="button"
+                    >
+                        2 PLAYERS
+                    </button>
 
-                        <div
-                            id="message1"
-                            aria-live="polite"
-                        >
-                            PRESS START
+                </section>
+
+
+                <!-- =========================
+                    JOGO
+                ========================== -->
+
+                <section
+                    id="game"
+                    class="game hidden"
+                >
+
+
+                    <!-- =====================
+                        PLAYER 1
+                    ====================== -->
+
+                    <div
+                        id="player1"
+                        class="player"
+                    >
+
+                        <h2>PLAYER 1</h2>
+
+                        <div class="board-container">
+
+                            <canvas
+                                id="canvas1"
+                                width="300"
+                                height="600"
+                                aria-label="Tabuleiro do jogador 1"
+                            ></canvas>
+
+                            <div
+                                id="message1"
+                                aria-live="polite"
+                            >
+                                PRESS START
+                            </div>
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <div class="box">
+
+                                <span>SCORE</span>
+
+                                <strong id="score1">
+                                    000000
+                                </strong>
+
+                            </div>
+
+
+                            <div class="box">
+
+                                <span>LINES</span>
+
+                                <strong id="lines1">
+                                    000
+                                </strong>
+
+                            </div>
+
+
+                            <div class="box">
+
+                                <span>LEVEL</span>
+
+                                <strong id="level1">
+                                    01
+                                </strong>
+
+                            </div>
+
                         </div>
 
                     </div>
 
 
-                    <div class="info">
+                    <!-- =====================
+                        PLAYER 2
+                    ====================== -->
 
-                        <div class="box">
+                    <div
+                        id="player2"
+                        class="player hidden"
+                    >
 
-                            <span>SCORE</span>
+                        <h2>PLAYER 2</h2>
 
-                            <strong id="score1">
-                                000000
-                            </strong>
+                        <div class="board-container">
 
-                        </div>
+                            <canvas
+                                id="canvas2"
+                                width="300"
+                                height="600"
+                                aria-label="Tabuleiro do jogador 2"
+                            ></canvas>
 
-
-                        <div class="box">
-
-                            <span>LINES</span>
-
-                            <strong id="lines1">
-                                000
-                            </strong>
-
-                        </div>
-
-
-                        <div class="box">
-
-                            <span>LEVEL</span>
-
-                            <strong id="level1">
-                                01
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =====================
-                    PLAYER 2
-                ====================== -->
-
-                <div
-                    id="player2"
-                    class="player hidden"
-                >
-
-                    <h2>PLAYER 2</h2>
-
-                    <div class="board-container">
-
-                        <canvas
-                            id="canvas2"
-                            width="300"
-                            height="600"
-                            aria-label="Tabuleiro do jogador 2"
-                        ></canvas>
-
-                        <div
-                            id="message2"
-                            aria-live="polite"
-                        >
-                            PRESS START
-                        </div>
-
-                    </div>
-
-
-                    <div class="info">
-
-                        <div class="box">
-
-                            <span>SCORE</span>
-
-                            <strong id="score2">
-                                000000
-                            </strong>
+                            <div
+                                id="message2"
+                                aria-live="polite"
+                            >
+                                PRESS START
+                            </div>
 
                         </div>
 
 
-                        <div class="box">
+                        <div class="info">
 
-                            <span>LINES</span>
+                            <div class="box">
 
-                            <strong id="lines2">
-                                000
-                            </strong>
+                                <span>SCORE</span>
 
-                        </div>
+                                <strong id="score2">
+                                    000000
+                                </strong>
+
+                            </div>
 
 
-                        <div class="box">
+                            <div class="box">
 
-                            <span>LEVEL</span>
+                                <span>LINES</span>
 
-                            <strong id="level2">
-                                01
-                            </strong>
+                                <strong id="lines2">
+                                    000
+                                </strong>
+
+                            </div>
+
+
+                            <div class="box">
+
+                                <span>LEVEL</span>
+
+                                <strong id="level2">
+                                    01
+                                </strong>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
+
+                </section>
 
 
-            </section>
+                <!-- =========================
+                    CONTROLES / AÇÕES
+                ========================== -->
 
-
-            <!-- =========================
-                CONTROLES / AÇÕES
-            ========================== -->
-
-            <section
-                id="actions"
-                class="actions hidden"
-            >
-
-                <button
-                    id="start"
-                    type="button"
-                >
-                    START
-                </button>
-
-                <button
-                    id="pause"
-                    type="button"
-                >
-                    PAUSE
-                </button>
-
-                <button
-                    id="restart"
-                    type="button"
-                >
-                    RESTART
-                </button>
-
-                <button
-                    id="menuButton"
-                    type="button"
-                >
-                    MENU
-                </button>
-
-            </section>
-
-
-            <!-- =========================
-                CONTROLES
-            ========================== -->
-
-            <section
-                id="instructions"
-                class="instructions hidden"
-            >
-
-                <h2>CONTROLS</h2>
-
-                <div id="controls1">
-
-                    <h3>PLAYER 1</h3>
-
-                    <p>A / D → MOVER</p>
-
-                    <p>W → GIRAR</p>
-
-                    <p>S → DESCER</p>
-
-                    <p>ESPAÇO → DROP</p>
-
-                </div>
-
-
-                <div
-                    id="controls2"
-                    class="hidden"
+                <section
+                    id="actions"
+                    class="actions hidden"
                 >
 
-                    <h3>PLAYER 2</h3>
+                    <button
+                        id="start"
+                        type="button"
+                    >
+                        START
+                    </button>
 
-                    <p>← / → → MOVER</p>
+                    <button
+                        id="pause"
+                        type="button"
+                    >
+                        PAUSE
+                    </button>
 
-                    <p>↑ → GIRAR</p>
+                    <button
+                        id="restart"
+                        type="button"
+                    >
+                        RESTART
+                    </button>
 
-                    <p>↓ → DESCER</p>
+                    <button
+                        id="menuButton"
+                        type="button"
+                    >
+                        MENU
+                    </button>
 
-                    <p>ENTER → DROP</p>
-
-                </div>
-
-            </section>
+                </section>
 
 
-            <!-- =========================
-                CONTROLES MOBILE
-            ========================== -->
+                <!-- =========================
+                    CONTROLES
+                ========================== -->
 
-            <section
-                id="mobileControls"
-                class="mobile-controls hidden"
-                aria-label="Controles mobile"
-            >
-
-                <button
-                    id="left"
-                    type="button"
+                <section
+                    id="instructions"
+                    class="instructions hidden"
                 >
-                    ←
-                </button>
 
-                <button
-                    id="rotate"
-                    type="button"
+                    <h2>CONTROLS</h2>
+
+                    <div id="controls1">
+
+                        <h3>PLAYER 1</h3>
+
+                        <p>A / D → MOVER</p>
+
+                        <p>W → GIRAR</p>
+
+                        <p>S → DESCER</p>
+
+                        <p>ESPAÇO → DROP</p>
+
+                    </div>
+
+
+                    <div
+                        id="controls2"
+                        class="hidden"
+                    >
+
+                        <h3>PLAYER 2</h3>
+
+                        <p>← / → → MOVER</p>
+
+                        <p>↑ → GIRAR</p>
+
+                        <p>↓ → DESCER</p>
+
+                        <p>ENTER → DROP</p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                    CONTROLES MOBILE
+                ========================== -->
+
+                <section
+                    id="mobileControls"
+                    class="mobile-controls hidden"
+                    aria-label="Controles mobile"
                 >
-                    ↻
-                </button>
 
-                <button
-                    id="right"
-                    type="button"
-                >
-                    →
-                </button>
+                    <button
+                        id="left"
+                        type="button"
+                    >
+                        ←
+                    </button>
 
-                <button
-                    id="down"
-                    type="button"
-                >
-                    ↓
-                </button>
+                    <button
+                        id="rotate"
+                        type="button"
+                    >
+                        ↻
+                    </button>
 
-                <button
-                    id="drop"
-                    type="button"
-                >
-                    DROP
-                </button>
+                    <button
+                        id="right"
+                        type="button"
+                    >
+                        →
+                    </button>
 
-            </section>
+                    <button
+                        id="down"
+                        type="button"
+                    >
+                        ↓
+                    </button>
+
+                    <button
+                        id="drop"
+                        type="button"
+                    >
+                        DROP
+                    </button>
+
+                </section>
 
 
-        <!--=====================
-            FOOTER
-        ==========================-->
+            <!--=====================
+                FOOTER
+            ==========================-->
 
-            <footer class="footer">
+                <footer class="footer">
 
-                TETRIS • RETRO 2D
+                    TETRIS • RETRO 2D
 
-            </footer>
+                </footer>
 
-        </main>
+            </main>
 
 
-        <script src="script.js"></script>
+            <script src="script.js"></script>
 
-    </body>
+        </body>
 
-    </html>
+        </html>
