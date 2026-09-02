@@ -1,8 +1,17 @@
+/* ==============================
+   RESET
+============================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+
+/* ==============================
+   BODY
+============================== */
 
 body {
     min-height: 100vh;
@@ -11,7 +20,15 @@ body {
     justify-content: center;
     align-items: center;
 
-    background: #080808;
+    padding: 30px 15px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #0b160f 0%,
+            #050805 45%,
+            #000000 100%
+        );
 
     color: #00ff66;
 
@@ -20,35 +37,73 @@ body {
         monospace;
 }
 
+
+/* ==============================
+   ARCADE
+============================== */
+
 .arcade {
+    width: max-content;
+
     text-align: center;
 }
 
-h1 {
-    margin-bottom: 20px;
 
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+    margin-bottom: 20px;
+}
+
+h1 {
     font-size: 46px;
 
     letter-spacing: 8px;
 
     text-shadow:
         0 0 5px #00ff66,
-        0 0 15px #00ff66;
+        0 0 15px #00ff66,
+        0 0 30px #00ff66;
 }
+
+.subtitle {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.7;
+}
+
+
+/* ==============================
+   GAME
+============================== */
 
 .game {
     display: flex;
 
-    gap: 25px;
-
     align-items: flex-start;
+
+    gap: 25px;
+}
+
+
+/* ==============================
+   BOARD
+============================== */
+
+.board-container {
+    position: relative;
 }
 
 canvas {
     display: block;
-
-    width: 300px;
-    height: 600px;
 
     background: #000;
 
@@ -58,8 +113,34 @@ canvas {
 
     box-shadow:
         0 0 10px #00ff66,
+        0 0 25px rgba(0, 255, 102, 0.25),
         inset 0 0 20px #003d19;
 }
+
+
+/* ==============================
+   MESSAGE
+============================== */
+
+#message {
+    margin-top: 18px;
+
+    min-height: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 5px #00ff66;
+}
+
+
+/* ==============================
+   INFO
+============================== */
 
 .info {
     width: 170px;
@@ -71,6 +152,11 @@ canvas {
     gap: 15px;
 }
 
+
+/* ==============================
+   SCORE BOX
+============================== */
+
 .box {
     padding: 12px;
 
@@ -79,24 +165,84 @@ canvas {
     background: #020d05;
 
     text-align: left;
+
+    box-shadow:
+        inset 0 0 10px rgba(0, 255, 102, 0.08);
 }
 
 .box span {
     display: block;
 
-    font-size: 12px;
-
     margin-bottom: 7px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.8;
 }
 
 .box strong {
+    display: block;
+
     font-size: 20px;
 
     letter-spacing: 2px;
+
+    text-shadow:
+        0 0 5px #00ff66;
+}
+
+
+/* ==============================
+   NEXT PIECE
+============================== */
+
+.preview {
+    padding: 10px;
+
+    border: 2px solid #00ff66;
+
+    background: #020d05;
+}
+
+.preview span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    text-align: left;
+
+    letter-spacing: 1px;
+}
+
+#nextCanvas {
+    width: 120px;
+    height: 120px;
+
+    border: 2px solid #003d19;
+
+    box-shadow:
+        inset 0 0 15px #003d19;
+}
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
 }
 
 button {
-    padding: 14px;
+    padding: 13px 10px;
 
     border: 2px solid #00ff66;
 
@@ -106,24 +252,45 @@ button {
 
     font-family: inherit;
 
+    font-size: 12px;
+
     font-weight: bold;
+
+    letter-spacing: 1px;
 
     cursor: pointer;
 
-    box-shadow:
-        0 0 10px #00ff66;
+    transition:
+        background 0.15s,
+        color 0.15s,
+        box-shadow 0.15s,
+        transform 0.1s;
 }
 
 button:hover {
     background: #000;
 
     color: #00ff66;
+
+    box-shadow:
+        0 0 10px #00ff66;
 }
 
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* ==============================
+   INSTRUCTIONS
+============================== */
+
 .instructions {
+    padding: 12px;
+
     border: 2px solid #00ff66;
 
-    padding: 12px;
+    background: #020d05;
 
     font-size: 11px;
 
@@ -132,20 +299,112 @@ button:hover {
     text-align: left;
 }
 
-#message {
-    margin-top: 18px;
+.instructions h2 {
+    margin-bottom: 5px;
 
-    font-size: 14px;
+    font-size: 11px;
 
     letter-spacing: 2px;
 }
 
+.instructions p {
+    opacity: 0.85;
+}
+
+
+/* ==============================
+   MOBILE CONTROLS
+============================== */
+
+.mobile-controls {
+    display: none;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+    margin-top: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.4;
+}
+
+
+/* ==============================
+   CRT EFFECT
+============================== */
+
+.arcade::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0, 255, 102, 0.025),
+            rgba(0, 255, 102, 0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 750px) {
+
+    body {
+        align-items: flex-start;
+
+        padding-top: 20px;
+    }
+
+    .game {
+        gap: 15px;
+    }
+
+    .info {
+        width: 150px;
+    }
+
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
 @media (max-width: 600px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 34px;
+
+        letter-spacing: 6px;
+    }
 
     .game {
         flex-direction: column;
 
         align-items: center;
+
+        gap: 15px;
     }
 
     .info {
@@ -155,11 +414,100 @@ button:hover {
 
         grid-template-columns:
             repeat(3, 1fr);
+
+        gap: 8px;
     }
 
-    .instructions,
-    button {
+    .box {
+        padding: 9px;
+    }
+
+    .box span {
+        font-size: 9px;
+    }
+
+    .box strong {
+        font-size: 15px;
+    }
+
+    .preview {
         grid-column: 1 / -1;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+    }
+
+    #nextCanvas {
+        width: 80px;
+        height: 80px;
+    }
+
+    .actions {
+        grid-column: 1 / -1;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .instructions {
+        grid-column: 1 / -1;
+
+        text-align: center;
+    }
+
+    .mobile-controls {
+        width: 300px;
+
+        margin: 15px auto 0;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+    }
+
+    .mobile-controls button {
+        min-height: 50px;
+
+        font-size: 18px;
+    }
+
+    #down {
+        grid-column: 1;
+    }
+
+    #drop {
+        grid-column: 3;
+    }
+
+    .footer {
+        margin-top: 15px;
+    }
+
+}
+
+
+/* ==============================
+   SMALL PHONES
+============================== */
+
+@media (max-width: 350px) {
+
+    canvas {
+        width: 270px;
+        height: 540px;
+    }
+
+    .info,
+    .mobile-controls {
+        width: 270px;
     }
 
 }

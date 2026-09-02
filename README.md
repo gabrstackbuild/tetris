@@ -1,8 +1,8 @@
-# 🕹️ tetris 2D
+Vou deixar um README com cara de projeto real, não aquele clássico `# Tetris` seguido de três linhas e abandono no GitHub. 😐
+
+# 🕹️ Tetris Retrô 2D
 
 Um jogo de **Tetris clássico em 2D**, desenvolvido com **HTML, CSS e JavaScript**, utilizando a API **Canvas 2D** para renderização do tabuleiro e das peças.
-
-Vou deixar um README com cara de projeto real, não aquele clássico `# Tetris` seguido de três linhas e abandono no GitHub. 😐
 
 O projeto possui uma estética inspirada nos antigos jogos de arcade, com visual pixelado, grade retrô e interface simples.
 
@@ -39,7 +39,7 @@ Não são utilizadas bibliotecas ou frameworks externos.
 ## 📁 Estrutura do projeto
 
 ```text
-tetris-retro/
+tetris/
 │
 ├── index.html
 ├── style.css
@@ -184,21 +184,21 @@ Este projeto foi desenvolvido para praticar conceitos fundamentais de desenvolvi
 
 * Manipulação do Canvas
 * JavaScript
-* Arrays e matrizes
-* Eventos de teclado
-* Loops de animação
-* Detecção de colisão
-* Lógica de jogos
+* Arrays e Matrizes
+* Eventos de Teclado
+* Loops de Animação
+* Detecção de Colisão
+* Lógica de Jogos
 * Manipulação do DOM
-* CSS responsivo
+* CSS Responsivo
 
 ## 📄 Licença
 
-Este projeto pode ser utilizado para fins de estudo e aprendizado.
+Este Projeto Pode Ser Utilizado Para Fins De Estudo e Aprendizado.
 
 ---
 
-### 🕹️ Tetris Retrô 2D
+### 🕹️ tetris 2D
 
 **HTML + CSS + JavaScript + Canvas 2D**
 
