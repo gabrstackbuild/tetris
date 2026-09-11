@@ -1,17 +1,41 @@
-/* ==============================
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* =========================================
    RESET
-============================== */
+========================================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+:root {
+    --bg: #090806;
+    --panel: #18120d;
+    --panel-light: #2b1c10;
 
-/* ==============================
+    --wood-dark: #211207;
+    --wood: #4b2b12;
+    --wood-light: #815326;
+
+    --gold-dark: #8b621d;
+    --gold: #d6a83f;
+    --gold-light: #ffe29a;
+
+    --text: #e5d09a;
+    --muted: #927b50;
+
+    --blue: #315a83;
+    --blue-light: #6194c7;
+
+    --red: #71332d;
+    --red-light: #b85a4e;
+}
+
+/* =========================================
    BODY
-============================== */
+========================================= */
 
 body {
     min-height: 100vh;
@@ -20,494 +44,804 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 30px 15px;
+    padding: 20px;
 
     background:
         radial-gradient(
-            circle at center,
-            #0b160f 0%,
-            #050805 45%,
-            #000000 100%
+            circle at 50% 30%,
+            #3a2a1b 0%,
+            #17110b 45%,
+            #050403 100%
         );
 
-    color: #00ff66;
+    color: var(--text);
 
-    font-family:
-        "Courier New",
-        monospace;
+    font-family: 'Press Start 2P', monospace;
+
+    image-rendering: pixelated;
 }
 
-
-/* ==============================
-   ARCADE
-============================== */
+/* =========================================
+   CONTAINER
+========================================= */
 
 .arcade {
-    width: max-content;
+    width: 100%;
+    max-width: 1100px;
 
-    text-align: center;
+    padding: 30px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #24170d,
+            #100b07
+        );
+
+    border: 6px solid var(--wood-light);
+
+    box-shadow:
+        0 0 0 3px #080503,
+        0 0 0 8px #523318,
+        0 25px 60px #000;
 }
 
+/* Cantos decorativos */
 
-/* ==============================
+.arcade::before,
+.arcade::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: 12px;
+
+    color: var(--gold);
+
+    font-size: 22px;
+
+    text-shadow:
+        0 0 8px rgba(214, 168, 63, 0.5);
+}
+
+.arcade::before {
+    left: 15px;
+}
+
+.arcade::after {
+    right: 15px;
+}
+
+/* =========================================
    HEADER
-============================== */
+========================================= */
 
 .header {
-    margin-bottom: 20px;
+    text-align: center;
+
+    padding-bottom: 20px;
+
+    margin-bottom: 30px;
+
+    border-bottom: 3px solid var(--gold-dark);
 }
 
-h1 {
-    font-size: 46px;
+.decorative-line {
+    color: var(--gold-dark);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin: 8px 0;
+}
+
+.header h1 {
+    font-size: clamp(42px, 7vw, 78px);
 
     letter-spacing: 8px;
 
+    color: var(--gold-light);
+
     text-shadow:
-        0 0 5px #00ff66,
-        0 0 15px #00ff66,
-        0 0 30px #00ff66;
+        4px 4px 0 #4a2b0b,
+        7px 7px 0 #160d05,
+        0 0 15px rgba(214, 168, 63, 0.35);
 }
 
 .subtitle {
     display: block;
 
-    margin-top: 5px;
+    margin-top: 12px;
+
+    color: var(--muted);
 
     font-size: 10px;
 
-    letter-spacing: 5px;
-
-    opacity: 0.7;
+    letter-spacing: 4px;
 }
 
+/* =========================================
+   MENU
+========================================= */
 
-/* ==============================
+.menu {
+    width: min(500px, 100%);
+
+    margin: 70px auto;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #3b2614,
+            #1a0f08
+        );
+
+    border: 5px solid var(--wood-light);
+
+    box-shadow:
+        inset 0 0 0 3px #170b05,
+        inset 0 0 30px #000,
+        0 12px 30px #000;
+}
+
+.menu-decoration {
+    margin-bottom: 20px;
+
+    font-size: 35px;
+
+    filter:
+        drop-shadow(3px 3px 0 #000);
+}
+
+.menu h2 {
+    margin-bottom: 35px;
+
+    color: var(--gold-light);
+
+    font-size: 16px;
+
+    text-shadow:
+        2px 2px #000;
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+button {
+    font-family: 'Press Start 2P', monospace;
+
+    color: var(--text);
+
+    background:
+        linear-gradient(
+            #67431f,
+            #2e1b0d
+        );
+
+    border: 4px solid #93632c;
+
+    padding: 15px 20px;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 0 0 2px #160b05,
+        0 5px 0 #090503;
+
+    transition:
+        transform 0.1s ease,
+        filter 0.1s ease;
+}
+
+button:hover {
+    color: #fff1b8;
+
+    background:
+        linear-gradient(
+            #855a29,
+            #4a2b12
+        );
+
+    filter:
+        brightness(1.15);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        inset 0 0 0 2px #211106,
+        0 7px 0 #090503,
+        0 0 15px rgba(214, 168, 63, 0.3);
+}
+
+button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        inset 0 0 0 2px #160b05,
+        0 1px 0 #090503;
+}
+
+.menu button {
+    display: block;
+
+    width: 100%;
+
+    margin: 18px 0;
+}
+
+/* =========================================
    GAME
-============================== */
+========================================= */
 
 .game {
     display: flex;
 
+    justify-content: center;
+
     align-items: flex-start;
 
-    gap: 25px;
+    gap: 35px;
+
+    flex-wrap: wrap;
 }
 
+/* =========================================
+   PLAYER
+========================================= */
 
-/* ==============================
+.player {
+    padding: 18px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #302012,
+            #130c07
+        );
+
+    border: 5px solid var(--wood-light);
+
+    box-shadow:
+        inset 0 0 0 3px #160b05,
+        inset 0 0 25px #000,
+        0 12px 25px #000;
+}
+
+/* =========================================
+   PLAYER BANNER
+========================================= */
+
+.player-banner {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+
+    padding: 10px;
+
+    border: 3px solid var(--gold-dark);
+
+    background:
+        linear-gradient(
+            #34200f,
+            #160c06
+        );
+}
+
+.player-banner span {
+    color: var(--gold);
+
+    font-size: 13px;
+}
+
+.player-banner h2 {
+    font-size: 13px;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        2px 2px #000;
+}
+
+/* Player 1 */
+
+.player-one-banner {
+    border-color: var(--blue);
+}
+
+.player-one-banner span {
+    color: var(--blue-light);
+}
+
+/* Player 2 */
+
+.player-two-banner {
+    border-color: var(--red);
+}
+
+.player-two-banner span {
+    color: var(--red-light);
+}
+
+/* =========================================
    BOARD
-============================== */
+========================================= */
 
 .board-container {
     position: relative;
+
+    padding: 8px;
+
+    background:
+        #050606;
+
+    border: 5px solid #69441e;
+
+    box-shadow:
+        inset 0 0 20px #000,
+        0 0 0 2px #1a1008,
+        0 8px 15px #000;
 }
 
 canvas {
     display: block;
 
-    background: #000;
+    background:
+        radial-gradient(
+            circle at center,
+            #182125,
+            #070a0b
+        );
 
-    border: 5px solid #00ff66;
+    border: 2px solid #382616;
 
     image-rendering: pixelated;
-
-    box-shadow:
-        0 0 10px #00ff66,
-        0 0 25px rgba(0, 255, 102, 0.25),
-        inset 0 0 20px #003d19;
 }
 
-
-/* ==============================
+/* =========================================
    MESSAGE
-============================== */
+========================================= */
 
-#message {
-    margin-top: 18px;
+#message1,
+#message2 {
+    position: absolute;
 
-    min-height: 20px;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    text-shadow:
-        0 0 5px #00ff66;
-}
-
-
-/* ==============================
-   INFO
-============================== */
-
-.info {
-    width: 170px;
+    inset: 0;
 
     display: flex;
 
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    gap: 15px;
+    padding: 20px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    text-align: center;
+
+    line-height: 1.8;
+
+    text-shadow:
+        2px 2px #000,
+        0 0 8px rgba(214, 168, 63, 0.5);
+
+    pointer-events: none;
 }
 
+/* =========================================
+   STATUS
+========================================= */
 
-/* ==============================
-   SCORE BOX
-============================== */
+.info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
 
 .box {
-    padding: 12px;
+    padding: 12px 5px;
 
-    border: 2px solid #00ff66;
+    background:
+        linear-gradient(
+            #21150c,
+            #0b0805
+        );
 
-    background: #020d05;
-
-    text-align: left;
+    border: 3px solid #65431f;
 
     box-shadow:
-        inset 0 0 10px rgba(0, 255, 102, 0.08);
+        inset 0 0 10px #000;
 }
 
 .box span {
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 
-    font-size: 11px;
+    color: var(--muted);
 
-    letter-spacing: 1px;
-
-    opacity: 0.8;
+    font-size: 7px;
 }
 
 .box strong {
-    display: block;
+    color: var(--gold-light);
 
-    font-size: 20px;
-
-    letter-spacing: 2px;
+    font-size: 10px;
 
     text-shadow:
-        0 0 5px #00ff66;
+        2px 2px #000;
 }
 
-
-/* ==============================
-   NEXT PIECE
-============================== */
-
-.preview {
-    padding: 10px;
-
-    border: 2px solid #00ff66;
-
-    background: #020d05;
-}
-
-.preview span {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 11px;
-
-    text-align: left;
-
-    letter-spacing: 1px;
-}
-
-#nextCanvas {
-    width: 120px;
-    height: 120px;
-
-    border: 2px solid #003d19;
-
-    box-shadow:
-        inset 0 0 15px #003d19;
-}
-
-
-/* ==============================
-   BUTTONS
-============================== */
+/* =========================================
+   ACTIONS
+========================================= */
 
 .actions {
     display: flex;
 
-    flex-direction: column;
+    justify-content: center;
 
-    gap: 8px;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 30px 0;
 }
 
-button {
-    padding: 13px 10px;
-
-    border: 2px solid #00ff66;
-
-    background: #00ff66;
-
-    color: #000;
-
-    font-family: inherit;
-
-    font-size: 12px;
-
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.15s,
-        color 0.15s,
-        box-shadow 0.15s,
-        transform 0.1s;
+.actions button {
+    min-width: 120px;
 }
 
-button:hover {
-    background: #000;
+/* START */
 
-    color: #00ff66;
-
-    box-shadow:
-        0 0 10px #00ff66;
-}
-
-button:active {
-    transform: scale(0.96);
-}
-
-
-/* ==============================
-   INSTRUCTIONS
-============================== */
-
-.instructions {
-    padding: 12px;
-
-    border: 2px solid #00ff66;
-
-    background: #020d05;
-
-    font-size: 11px;
-
-    line-height: 1.8;
-
-    text-align: left;
-}
-
-.instructions h2 {
-    margin-bottom: 5px;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-}
-
-.instructions p {
-    opacity: 0.85;
-}
-
-
-/* ==============================
-   MOBILE CONTROLS
-============================== */
-
-.mobile-controls {
-    display: none;
-}
-
-
-/* ==============================
-   FOOTER
-============================== */
-
-.footer {
-    margin-top: 18px;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    opacity: 0.4;
-}
-
-
-/* ==============================
-   CRT EFFECT
-============================== */
-
-.arcade::after {
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
+#start {
     background:
-        repeating-linear-gradient(
-            to bottom,
-            rgba(0, 255, 102, 0.025),
-            rgba(0, 255, 102, 0.025) 1px,
-            transparent 1px,
-            transparent 4px
+        linear-gradient(
+            #45672c,
+            #1d3013
+        );
+
+    border-color: #789b46;
+}
+
+/* PAUSE */
+
+#pause {
+    background:
+        linear-gradient(
+            #315578,
+            #172b40
+        );
+
+    border-color: #557da4;
+}
+
+/* RESTART */
+
+#restart {
+    background:
+        linear-gradient(
+            #66427a,
+            #2b1936
+        );
+
+    border-color: #8860a0;
+}
+
+/* MENU */
+
+#menuButton {
+    background:
+        linear-gradient(
+            #69451f,
+            #2d1a0c
         );
 }
 
+/* =========================================
+   INSTRUCTIONS
+========================================= */
 
-/* ==============================
-   TABLET
-============================== */
+.instructions {
+    max-width: 850px;
 
-@media (max-width: 750px) {
+    margin: 25px auto;
 
-    body {
-        align-items: flex-start;
+    padding: 25px;
 
-        padding-top: 20px;
-    }
+    text-align: center;
 
-    .game {
-        gap: 15px;
-    }
+    background:
+        linear-gradient(
+            #2b1a0d,
+            #130b06
+        );
 
-    .info {
-        width: 150px;
-    }
+    border: 4px solid #69451f;
 
+    box-shadow:
+        inset 0 0 20px #000;
 }
 
+/* Título */
 
-/* ==============================
-   MOBILE
-============================== */
+.section-title {
+    display: flex;
 
-@media (max-width: 600px) {
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.section-title span {
+    color: var(--gold);
+
+    font-size: 12px;
+}
+
+.section-title h2 {
+    color: var(--gold-light);
+
+    font-size: 15px;
+
+    text-shadow:
+        2px 2px #000;
+}
+
+/* Controles */
+
+.controls-wrapper {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    flex-wrap: wrap;
+}
+
+.controls-wrapper > div {
+    min-width: 260px;
+}
+
+.instructions h3 {
+    margin-bottom: 18px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+}
+
+.instructions p {
+    margin: 12px 0;
+
+    color: #b49a6a;
+
+    font-size: 8px;
+
+    line-height: 1.7;
+}
+
+/* =========================================
+   TECLAS
+========================================= */
+
+kbd {
+    display: inline-block;
+
+    min-width: 28px;
+
+    padding: 6px 7px;
+
+    margin: 0 2px;
+
+    color: #f0d998;
+
+    background:
+        linear-gradient(
+            #4a3119,
+            #211409
+        );
+
+    border: 2px solid #80602f;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 3px 0 #0a0603;
+
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 7px;
+}
+
+/* =========================================
+   MOBILE CONTROLS
+========================================= */
+
+.mobile-controls {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 25px auto;
+}
+
+.mobile-controls button {
+    min-width: 60px;
+
+    min-height: 50px;
+
+    padding: 10px;
+
+    font-size: 12px;
+}
+
+#drop {
+    min-width: 110px;
+
+    color: var(--gold-light);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+    padding-top: 18px;
+
+    border-top: 2px solid #5c3c1c;
+
+    color: #796444;
+
+    font-size: 8px;
+}
+
+.footer span {
+    color: var(--gold-dark);
+}
+
+/* =========================================
+   HIDDEN
+========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
 
     body {
-        padding: 20px 10px;
+        padding: 8px;
     }
 
-    h1 {
-        font-size: 34px;
+    .arcade {
+        padding: 15px;
 
-        letter-spacing: 6px;
+        border-width: 4px;
+    }
+
+    .header h1 {
+        font-size: 40px;
+
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .menu {
+        margin: 40px auto;
+
+        padding: 22px;
+    }
+
+    .menu h2 {
+        font-size: 12px;
     }
 
     .game {
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: 15px;
+        gap: 20px;
     }
 
-    .info {
-        width: 300px;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        gap: 8px;
+    .player {
+        width: 100%;
     }
 
-    .box {
-        padding: 9px;
+    .board-container {
+        width: fit-content;
+
+        max-width: 100%;
+
+        margin: auto;
     }
 
-    .box span {
-        font-size: 9px;
-    }
+    canvas {
+        max-width: 100%;
 
-    .box strong {
-        font-size: 15px;
-    }
-
-    .preview {
-        grid-column: 1 / -1;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-    }
-
-    #nextCanvas {
-        width: 80px;
-        height: 80px;
+        height: auto;
     }
 
     .actions {
-        grid-column: 1 / -1;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-    .instructions {
-        grid-column: 1 / -1;
-
-        text-align: center;
-    }
-
-    .mobile-controls {
-        width: 300px;
-
-        margin: 15px auto 0;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
         gap: 8px;
     }
 
-    .mobile-controls button {
-        min-height: 50px;
+    .actions button {
+        min-width: 100px;
 
-        font-size: 18px;
+        padding: 12px 8px;
+
+        font-size: 8px;
     }
 
-    #down {
-        grid-column: 1;
+    .instructions {
+        padding: 15px;
     }
 
-    #drop {
-        grid-column: 3;
+    .controls-wrapper {
+        gap: 25px;
+    }
+
+    .controls-wrapper > div {
+        min-width: 100%;
+    }
+
+    .instructions p {
+        font-size: 7px;
     }
 
     .footer {
-        margin-top: 15px;
+        font-size: 6px;
     }
-
-}
-
-
-/* ==============================
-   SMALL PHONES
-============================== */
-
-@media (max-width: 350px) {
-
-    canvas {
-        width: 270px;
-        height: 540px;
-    }
-
-    .info,
-    .mobile-controls {
-        width: 270px;
-    }
-
 }
