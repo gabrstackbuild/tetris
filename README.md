@@ -1,10 +1,10 @@
-Vou deixar um README com cara de projeto real, não aquele clássico `# Tetris` seguido de três linhas e abandono no GitHub. 😐
-
 # 🕹️ Tetris Retrô 2D
 
 Um jogo de **Tetris clássico em 2D**, desenvolvido com **HTML, CSS e JavaScript**, utilizando a API **Canvas 2D** para renderização do tabuleiro e das peças.
 
 O projeto possui uma estética inspirada nos antigos jogos de arcade, com visual pixelado, grade retrô e interface simples.
+
+Vou deixar um README com cara de projeto real, não aquele clássico `# Tetris` seguido de três linhas e abandono no GitHub. 😐
 
 ## 🎮 Demonstração
 
